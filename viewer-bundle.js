@@ -122758,11 +122758,8 @@ const container = document.getElementById('viewer-container');
 const viewer = new IfcViewerAPI({ container, backgroundColor: new Color(0xffffff) });
 viewer.IFC.setWasmPath('./wasm-0-0-35/');
 
-if (currentProjectID > 0) {
-    // Create grid and axes
-    viewer.grid.setGrid();
-    viewer.axes.setAxes();
-}  
+viewer.grid.setGrid();
+viewer.axes.setAxes();
 
 async function loadIfc() {
     const model = await viewer.IFC.loadIfcUrl('./models/' + currentProject.group + '.ifc');
@@ -123017,14 +123014,6 @@ if (currentProjectID > 0) {
     photomeshButton.style.display = 'none';
 }
 else {
-    const gridHelper = new GridHelper( 10, 10 );
-    gridHelper.position.y = -1.2;
-    viewer.context.getScene().add( gridHelper );
-
-    const axesHelper = new AxesHelper( 1 );
-    axesHelper.position.y = -1.2;
-    viewer.context.getScene().add( axesHelper );
-
     new RGBELoader()
 					.setPath( 'textures/equirectangular/' )
 					.load( 'abandoned_greenhouse_1k.hdr', function ( texture ) {
@@ -123035,9 +123024,6 @@ else {
 						const loader = new GLTFLoader().setPath( 'models/' );
 						loader.load( 'Pavillon La Hire.glb', function ( gltf ) {
                             const gltfModel = gltf.scene;
-                            gltf.scene.position.x = 0.35;
-                            gltf.scene.position.y = -1.18;
-                            gltf.scene.position.z = -0.32;
 							viewer.context.getScene().add( gltfModel );
                             viewer.context.getScene().traverse(function(child){
                                 if (child.name === 'Pav_LaHire_RC_Model_1Mf_1' || child.name === 'Pav_LaHire_RC_Model_1Mf_2' ) {
