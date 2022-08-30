@@ -109818,7 +109818,7 @@ function init() {
         else {
 
             const ifcLoader = new IFCLoader();
-            ifcLoader.ifcManager.setWasmPath('../../../');
+            ifcLoader.ifcManager.setWasmPath('./wasm-0-0-36/');
             ifcLoader.load( 'models/' + project.group + '.ifc', function ( model ) {
 
                 const box = new Box3().setFromObject(model);

@@ -122756,7 +122756,7 @@ groupAndStudents.textContent = currentProject.group + ": " + currentProject.stud
 
 const container = document.getElementById('viewer-container');
 const viewer = new IfcViewerAPI({ container, backgroundColor: new Color(0xffffff) });
-viewer.IFC.setWasmPath('../../../');
+viewer.IFC.setWasmPath('./wasm-0-0-35/');
 
 if (currentProjectID > 0) {
     // Create grid and axes
