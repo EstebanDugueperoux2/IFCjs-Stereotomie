@@ -108864,6 +108864,7 @@ let camera, scene, renderer, controls;
 					}
 					else {
 						const ifcLoader = new IFCLoader();
+						ifcLoader.ifcManager.setWasmPath('./wasm-0-0-36/');
 						ifcLoader.setPath('./models/');
 						ifcLoader.load(currentProject.group + '.ifc', function (model) {
 
