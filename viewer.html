@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNPA Stéréotomie</title>
+    <link rel="icon" type="image/x-icon" href="/epfl/favicon.ico">
+    <link rel="stylesheet" type='text/css' href="styles.css">
+</head>
+<body>
+    <div id="viewer-container"></div>
+    <header>
+        <div class="logos">
+            <a href="https://www.epfl.ch/fr/" target="blank">
+                <img id="logo-epfl" src="https://www.epfl.ch/wp/5.5/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg?refresh=now" alt="Logo EPFL, École polytechnique fédérale de Lausanne">
+            </a>
+            <a href="https://www.epfl.ch/schools/enac/fr/" target="blank">
+                <img class="logo-unites" src="./epfl/EPFL_Unités_ENAC.png" alt="Logo ENAC, Faculté de l’environnement naturel, architectural et construit">
+            </a>
+            <a href="https://www.epfl.ch/labs/cnpa/fr/" target="blank">
+                <img class="logo-unites" src="./epfl/EPFL_Unités_CNPA.png" alt="Logo CNPA, Laboratoire des cultures numériques du projet architectural">
+            </a>
+        </div>
+        <h1 class="header-titles">Stéréotomie 2021</h1>
+        <h2 class="header-titles-h2">group</h2>
+    </header>
+    
+    <div id="ifc-property-menu">
+        <div class="ifc-property-item">
+            <p>IfcProperty:</p>
+            <div class="ifc-property-value">Valeur:</div>
+        </div>
+        <div id="ifc-property-menu-root"></div>
+    </div>
+    <div id="ifc-selection-properties">
+        <p>Nom : <span id="ifc-selected-item-properties-name">-</span></p>
+        <p>Description : <span id ="ifc-selected-item-properties-description">-</span></p>
+    </div>
+    <div id="buttons-container">
+        <button id="photomesh-button" class="button">Photomesh</button>
+        <button id="infos-button" class="button">Informations</button>
+        <button id="clipper-button" class="button">Couper</button>
+        <button id="dimensions-button" class="button">Mesurer</button>
+        <button id="tour-button" class="button">Visite virtuelle &#8599;</button>
+        <p id="button-instructions"></p>
+    </div>
+    <script type="module" src="./viewer-bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+html, body {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --margin-left: 48px;
+}
+header{
+    position: fixed;
+    z-index: 1;
+}
+h1{
+    margin-left: var(--margin-left);
+}
+h2{
+    margin-left: var(--margin-left);
+}
+section{
+    width: 100vw;
+}
+footer{
+    height: 2.5rem;
+    padding-top: 1rem;
+    text-align: center;
+    color: #707070;
+    background-color: #e6e6e6;
+}
+.header-titles{
+    display: block;
+}
+.logos{
+    display: flex;
+    margin-left: var(--margin-left);
+    align-items: center;
+    height: 5.5rem;
+    align-items: center;
+}
+.logo-unites{
+    height: 50px;
+    margin-left: var(--margin-left);
+    margin-top: 8px;
+}
+.header-titles-h2{
+    font-size: inherit;
+    font-weight: normal;
+    margin-top: 10px;
+}
+.list-item {
+    display: inline-block;
+    margin-right: 2em;
+    margin-top: 2em;
+    border: 1px solid #dddddd;
+    transition-property: border-color, background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+.list-item:hover {
+    border : 1px solid black;
+    background-color : rgba(255, 255, 255, 0.2);
+}
+.scene-element {
+    cursor: grab;
+    width: 300px;
+    height: 300px;
+}
+.description-element{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+    text-align: left;
+    width: 300px;
+    padding: 0.5em;
+    border-style: solid;
+    color: black;
+    text-decoration-color: red;
+    border: none;
+    transition-property: color, text-decoration-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+.description-element:hover {
+    color: red;
+    border-color: red;
+    text-decoration-color: black;
+}
+/* From uiverse.io */
+.button {
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+.button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #ff0000;
+    box-shadow: 0px 15px 20px rgba(100, 0, 0, 0.4);
+    transform: translateY(-7px);
+}
+.active-button {
+    background-color : red;
+    transform: translateY(-3px);
+}
+.active-button:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+}
+.prevent-button {
+    color: #cccccc;
+}
+.prevent-button:hover {
+    cursor: not-allowed;
+    color: #cccccc;
+    background-color: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transform: none;
+}
+.ifc-property-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0.5rem;
+    border-bottom: solid 1px #dddddd;
+}
+.ifc-property-value {
+    color: red;
+    width: 100%;
+    text-align: right;
+}
+#index-html, #index-body{
+    overflow: visible;
+}
+#index-header{
+    position: relative;
+}
+#logo-epfl{
+    height: 27px;
+}
+#header-titles-h2-a{
+    color: black;
+    text-decoration-color: red;
+    transition-property: color, background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+#header-titles-h2-a:hover{
+    color: red;
+    text-decoration-color: black;
+}
+#viewer-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+#c {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#content {
+    position: absolute;
+    width: 100%;
+    padding: 0 0 50px 0;
+    margin-left: var(--margin-left);
+}
+#buttons-container {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 10vh;
+}
+#button-instructions{
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+}
+#ifc-property-menu {
+    display: none;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    border: solid 1px;
+    width: 20rem;
+    background-color: white;
+}
+#blocker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(69,58,76,0.5);
+}
+#instructions {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+}
