@@ -7,10 +7,8 @@ groupAndStudents.textContent = currentProject.group + ": " + currentProject.stud
 
 import {
     ACESFilmicToneMapping,
-    AxesHelper,
     Color,
     EquirectangularReflectionMapping,
-    GridHelper,
     sRGBEncoding,
 } from "three";
 

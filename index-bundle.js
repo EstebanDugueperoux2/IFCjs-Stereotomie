@@ -109748,24 +109748,53 @@ function init() {
         const element = document.createElement( 'div' );
         element.className = 'list-item';
 
+        //make a 3D scene
         const sceneElement = document.createElement( 'div' );
         sceneElement.classList.add('scene-element');
         element.appendChild( sceneElement );
 
+        //make a loading element on top of 3D scene
+        const loadingContainer = document.createElement('div');
+        loadingContainer.className = 'loading-container';
+        sceneElement.appendChild(loadingContainer);
+
+            const loadingIcon = document.createElement('img');
+            loadingIcon.src = "./epfl/square.png";
+            loadingIcon.className = 'loading-icon';
+            loadingContainer.appendChild(loadingIcon);
+
+            const loadingText = document.createElement('p');
+            loadingText.className = 'loading-text';
+            loadingText.textContent = 'Chargement:';
+            loadingContainer.appendChild(loadingText);
+        
+
+
+
+        /*
+        <div id="loader-container">
+        <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+          </svg>
+          <p>Loading...</p>
+        </div>
+        */
+
+        //make a desciption
         const descriptionElement = document.createElement( 'a' );
         descriptionElement.href = baseURL + `?id=${project.id}`;
         descriptionElement.target = '_blank';
         descriptionElement.classList.add('description-element');
         element.appendChild( descriptionElement );
 
-        const groupElement = document.createElement( 'p' );
-        if (project.id == 0){
-            groupElement.innerText = 'Pavillon La Hire';
-        }
-        else {
-            groupElement.innerText = 'Groupe ' + project.group + ' : ' + project.students;
-        }
-        descriptionElement.appendChild( groupElement );
+            const groupElement = document.createElement( 'p' );
+            if (project.id == 0){
+                groupElement.innerText = 'Pavillon La Hire';
+            }
+            else {
+                groupElement.innerText = 'Groupe ' + project.group + ' : ' + project.students;
+            }
+            descriptionElement.appendChild( groupElement );
 
         // the element that represents the area we want to render the scene
         scene.userData.element = sceneElement;
@@ -109788,29 +109817,39 @@ function init() {
 
                 const gltfLoader = new GLTFLoader();
                 gltfLoader.setPath('models/');
-                gltfLoader.load( 'Pavillon La Hire.glb', function ( gltf ) {
+                gltfLoader.load( 'Pavillon La Hire.glb', 
 
-                    const model = gltf.scene;
+                    function ( gltf ) {
 
-                    const box = new Box3().setFromObject(model);
-                    const center = box.getCenter(new Vector3$1());
-                    model.position.x += (model.position.x - center.x);
-                    model.position.y += (model.position.y - center.y);
-                    model.position.z += (model.position.z - center.z);
-                    const boxSize = box.getSize(new Vector3$1());
-                    camera.position.z = (boxSize.z + 10);
-                    const cameraFrustum = (1.3);
-                    camera.left = -cameraFrustum;
-                    camera.right = cameraFrustum;
-                    camera.top = cameraFrustum;
-                    camera.bottom = -cameraFrustum;
-                    camera.updateProjectionMatrix();
-                    controls.minDistance = ((boxSize.x + boxSize.z)/10);
-                    controls.maxDistance = (boxSize.x + boxSize.z);
+                        loadingContainer.style.display = 'none';
 
-                    group.add( model );
-                    render();
-                });
+                        const model = gltf.scene;
+
+                        const box = new Box3().setFromObject(model);
+                        const center = box.getCenter(new Vector3$1());
+                        model.position.x += (model.position.x - center.x);
+                        model.position.y += (model.position.y - center.y);
+                        model.position.z += (model.position.z - center.z);
+                        const boxSize = box.getSize(new Vector3$1());
+                        camera.position.z = (boxSize.z + 10);
+                        const cameraFrustum = (1.3);
+                        camera.left = -cameraFrustum;
+                        camera.right = cameraFrustum;
+                        camera.top = cameraFrustum;
+                        camera.bottom = -cameraFrustum;
+                        camera.updateProjectionMatrix();
+                        controls.minDistance = ((boxSize.x + boxSize.z)/10);
+                        controls.maxDistance = (boxSize.x + boxSize.z);
+
+                        group.add( model );
+                        render();},
+
+                    function ( progress ) {
+                        const current = (progress.loaded /  progress.total) * 100;
+                        const formatted = Math.trunc(current * 100) / 100; 
+                        loadingText.textContent = `Chargement: ${formatted}%`;
+                    }
+                );
             });
         }
 
@@ -109819,42 +109858,54 @@ function init() {
 
             const ifcLoader = new IFCLoader();
             ifcLoader.ifcManager.setWasmPath('./wasm-0-0-36/');
-            ifcLoader.load( 'models/' + project.group + '.ifc', function ( model ) {
+            ifcLoader.load( 'models/' + project.group + '.ifc', 
+                
+                function ( model ) {
 
-                const box = new Box3().setFromObject(model);
-                const center = box.getCenter(new Vector3$1());
-                model.position.x += (model.position.x - center.x);
-                model.position.y += (model.position.y - center.y);
-                model.position.z += (model.position.z - center.z);
-                const boxSize = box.getSize(new Vector3$1());
-                camera.position.z = (boxSize.z + 10);
-                const cameraFrustum = ((Math.sqrt((boxSize.x * boxSize.x) + (boxSize.y * boxSize.y))) / 1.8);
-                camera.left = -cameraFrustum;
-                camera.right = cameraFrustum;
-                camera.top = cameraFrustum;
-                camera.bottom = -cameraFrustum;
-                camera.updateProjectionMatrix();
-                controls.minDistance = ((boxSize.x + boxSize.z)/10);
-                controls.maxDistance = (boxSize.x + boxSize.z);
+                    loadingContainer.style.display = 'none';
 
-                sceneElement.onmousedown = () => {
-                    const gridHelper = new GridHelper( 10, 10 );
-                    gridHelper.position.y = (-boxSize.y / 2);
-                    group.add( gridHelper ); 
-                };
+                    const box = new Box3().setFromObject(model);
+                    const center = box.getCenter(new Vector3$1());
+                    model.position.x += (model.position.x - center.x);
+                    model.position.y += (model.position.y - center.y);
+                    model.position.z += (model.position.z - center.z);
+                    const boxSize = box.getSize(new Vector3$1());
+                    camera.position.z = (boxSize.z + 10);
+                    const cameraFrustum = ((Math.sqrt((boxSize.x * boxSize.x) + (boxSize.y * boxSize.y))) / 1.8);
+                    camera.left = -cameraFrustum;
+                    camera.right = cameraFrustum;
+                    camera.top = cameraFrustum;
+                    camera.bottom = -cameraFrustum;
+                    camera.updateProjectionMatrix();
+                    controls.minDistance = ((boxSize.x + boxSize.z)/10);
+                    controls.maxDistance = (boxSize.x + boxSize.z);
 
-                const material = new MeshStandardMaterial ({
-                    color: 0xDFB25E,
-                });
-                model.traverse((child, i) => {
-                    if (child.isMesh) {
-                        child.material = material;
-                    }                    
-                });
+                    sceneElement.onmousedown = () => {
+                        const gridHelper = new GridHelper( 10, 10 );
+                        gridHelper.position.y = (-boxSize.y / 2);
+                        group.add( gridHelper ); 
+                    };
 
-                group.add( model );
+                    const material = new MeshStandardMaterial ({
+                        color: 0xDFB25E,
+                    });
+                    model.traverse((child, i) => {
+                        if (child.isMesh) {
+                            child.material = material;
+                        }                    
+                    });
 
-            } );
+                    group.add( model );
+
+                },
+
+                function ( progress ) {
+                    const current = (progress.loaded /  progress.total) * 100;
+                    const formatted = Math.trunc(current * 100) / 100; 
+                    loadingText.textContent = `Chargement: ${formatted}%`;
+                }
+            );
+
                 
             const light = new DirectionalLight( 0xffffff, 0.8 );
             light.position.set( 1, 1, 1 );
