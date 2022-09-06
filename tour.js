@@ -202,40 +202,60 @@ let camera, scene, renderer, controls;
 					});
 
 					// MODEL
+					const loadingElem = document.getElementById('tour-loading-container');
+					const loadingText = document.getElementById('tour-loading-text');
 					if (currentProjectID == 0) {
 						camera.position.z = 4;
-						gltfLoader.load( 'models/Pavillon La Hire.glb', function (model) {
-							scene.add(model.scene);
-						});
+						gltfLoader.load( 'models/Pavillon La Hire.glb', 
+							function (model) {
+								blocker.style.display = 'block';
+								loadingElem.style.display = 'none';
+								scene.add(model.scene);
+							},
+							function ( progress ) {
+								const current = (progress.loaded /  progress.total) * 100;
+    							const formatted = Math.trunc(current * 100) / 100; 
+    							loadingText.textContent = `Chargement: ${formatted}%`;
+							}
+						);
 					}
 					else{
 						const ifcLoader = new IFCLoader();
 						ifcLoader.ifcManager.setWasmPath('./wasm-0-0-36/');
 						ifcLoader.setPath('./models/')
-						ifcLoader.load(currentProject.group + '.ifc', function (model) {
+						ifcLoader.load(currentProject.group + '.ifc', 
+							function (model) {
+								blocker.style.display = 'block';
+								loadingElem.style.display = 'none';
 
-							// CENTER
-							const box = new Box3().setFromObject(model);
-							const center = box.getCenter(new Vector3());
-							model.position.x += (model.position.x - center.x);
-							model.position.z += (model.position.z - center.z);
-							const boxSize = box.getSize(new Vector3());
-							camera.position.z = (boxSize.z + 4);
+								// CENTER
+								const box = new Box3().setFromObject(model);
+								const center = box.getCenter(new Vector3());
+								model.position.x += (model.position.x - center.x);
+								model.position.z += (model.position.z - center.z);
+								const boxSize = box.getSize(new Vector3());
+								camera.position.z = (boxSize.z + 4);
 
-							// MATERIAL
-							const woodMaterial = new MeshStandardMaterial({ 
-								color: 0xDFB25E 
-							});
-							model.traverse( function( mesh ) {
-								if ( mesh.isMesh ) { 							
-									mesh.material = woodMaterial;
-									mesh.castShadow = true; 
-									mesh.receiveShadow = false;
-								}
-							} );
+								// MATERIAL
+								const woodMaterial = new MeshStandardMaterial({ 
+									color: 0xDFB25E 
+								});
+								model.traverse( function( mesh ) {
+									if ( mesh.isMesh ) { 							
+										mesh.material = woodMaterial;
+										mesh.castShadow = true; 
+										mesh.receiveShadow = false;
+									}
+								} );
 
-							scene.add( model);
-						});
+								scene.add( model);
+							},
+							function ( progress ) {
+								const current = (progress.loaded /  progress.total) * 100;
+    							const formatted = Math.trunc(current * 100) / 100; 
+    							loadingText.textContent = `Chargement: ${formatted}%`;
+							}
+						);
 					}						
 				} );
 

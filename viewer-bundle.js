@@ -123022,15 +123022,26 @@ else {
 						viewer.context.getScene().environment = texture;
 
 						const loader = new GLTFLoader().setPath( 'models/' );
-						loader.load( 'Pavillon La Hire.glb', function ( gltf ) {
-                            const gltfModel = gltf.scene;
-							viewer.context.getScene().add( gltfModel );
-                            viewer.context.getScene().traverse(function(child){
-                                if (child.name === 'Pav_LaHire_RC_Model_1Mf_1' || child.name === 'Pav_LaHire_RC_Model_1Mf_2' ) {
-                                    child.visible = false;
-                                }
-                            });
-						} );
+                        const photomeshLoaderContainer = document.getElementById("photomesh-loading-container");
+                        const photomeshLoaderText = document.getElementById("photomesh-loading-text");
+						loader.load( 'Pavillon La Hire.glb', 
+                            function ( gltf ) {
+                                photomeshButton.classList.remove('prevent-button');
+                                photomeshLoaderContainer.style.display = 'none';
+                                const gltfModel = gltf.scene;
+                                viewer.context.getScene().add( gltfModel );
+                                viewer.context.getScene().traverse(function(child){
+                                    if (child.name === 'Pav_LaHire_RC_Model_1Mf_1' || child.name === 'Pav_LaHire_RC_Model_1Mf_2' ) {
+                                        child.visible = false;
+                                    }
+                                });
+						    },
+                            function ( progress ) {
+                                const current = (progress.loaded /  progress.total) * 100;
+                                const formatted = Math.trunc(current * 100) / 100; 
+                                photomeshLoaderText.textContent = `${formatted}%`;
+                            }   
+                        );
 					} );
 
     function photomeshButtonActive () {

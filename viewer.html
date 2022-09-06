@@ -38,7 +38,14 @@
         <p>Description : <span id ="ifc-selected-item-properties-description">-</span></p>
     </div>
     <div id="buttons-container">
-        <button id="photomesh-button" class="button">Photomesh</button>
+        <button id="photomesh-button" class="button prevent-button">Photomesh
+            <div id="photomesh-loading-container">
+                <svg id="photomesh-loading-svg" viewBox="25 25 50 50">
+                    <circle id="photomesh-loading-circle" r="20" cy="50" cx="50"></circle>
+                </svg>
+                <span id="photomesh-loading-text">0%</span>
+            </div>
+        </button>
         <button id="infos-button" class="button">Informations</button>
         <button id="clipper-button" class="button">Couper</button>
         <button id="dimensions-button" class="button">Mesurer</button>

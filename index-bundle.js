@@ -109767,20 +109767,8 @@ function init() {
             loadingText.className = 'loading-text';
             loadingText.textContent = 'Chargement:';
             loadingContainer.appendChild(loadingText);
-        
 
-
-
-        /*
-        <div id="loader-container">
-        <svg viewBox="25 25 50 50">
-            <circle r="20" cy="50" cx="50"></circle>
-          </svg>
-          <p>Loading...</p>
-        </div>
-        */
-
-        //make a desciption
+        //make a description
         const descriptionElement = document.createElement( 'a' );
         descriptionElement.href = baseURL + `?id=${project.id}`;
         descriptionElement.target = '_blank';
