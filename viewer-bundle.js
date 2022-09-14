@@ -122769,9 +122769,10 @@ async function loadIfc() {
 loadIfc();
 
 // BUTTONS
-const buttonInstructions = document.getElementById('button-instructions');
-const buttonInstructionsBase = 'Sélectionner un outil.';
-buttonInstructions.textContent = buttonInstructionsBase;
+const buttonInstructionsMain = document.getElementById('button-instructions-main');
+const buttonInstructionsMainBase = 'Sélectionner un outil.';
+const buttonInstructionsEscape = document.getElementById('button-instructions-escape');
+buttonInstructionsEscape.style.display = 'none';
 
 // INFOS BUTTON
 const infosButton = document.getElementById('infos-button');
@@ -122780,7 +122781,13 @@ const propertiesGUI = document.getElementById("ifc-property-menu-root");
 
 function infosButtonActive () {
     infosButton.classList.add('active-button');
-    buttonInstructions.textContent = 'Double-cliquer sur un élément pour le sélectionner et afficher ses propriétés.';
+    if (currentProjectID === 0){
+        buttonInstructionsMain.textContent = 'Double-cliquer sur un élément pour afficher ses propriétés.';
+    }
+    else {
+        buttonInstructionsMain.textContent = 'Double-cliquer sur un panneau ou une poutre pour afficher ses propriétés.';
+    }
+    buttonInstructionsEscape.style.display = 'inline';
     ifcPropertyMenu.style.display = 'block';
 
     window.onmousemove = () => {
@@ -122903,7 +122910,8 @@ function infosButtonDisable () {
     viewer.IFC.selector.unpickIfcItems();
     viewer.IFC.selector.unHighlightIfcItems();
     propertiesGUI.textContent = '';
-    buttonInstructions.textContent = buttonInstructionsBase;
+    buttonInstructionsMain.textContent = buttonInstructionsMainBase;
+    buttonInstructionsEscape.style.display = 'none';
 }
 let infosButtonBoolean = false;
 infosButton.onclick = () => {
@@ -122919,22 +122927,20 @@ const clipperButton = document.getElementById('clipper-button');
 
 function clipperButtonActive () {
     clipperButton.classList.add('active-button');
-    buttonInstructions.textContent = 'Double-clic sur une face pour ajouter un plan de coupe; delete pour supprimer.';
+    buttonInstructionsMain.textContent = 'Double-cliquer sur une face pour ajouter un plan de coupe.';
+    buttonInstructionsEscape.style.display = 'inline';
     viewer.clipper.active = true;
     window.ondblclick = () => {
         viewer.clipper.createPlane();
-    };
-    window.onkeydown = (event) => {
-        if(event.code === 'Delete') {
-            viewer.clipper.deleteAllPlanes();
-        }
     };
 }
 
 function clipperButtonDisable () {
     clipperButton.classList.remove('active-button');
     viewer.clipper.active = false;
-    buttonInstructions.textContent = buttonInstructionsBase;
+    buttonInstructionsMain.textContent = buttonInstructionsMainBase;
+    buttonInstructionsEscape.style.display = 'none';
+    viewer.clipper.deleteAllPlanes();
 }
 
 let clipperButtonBoolean = false;
@@ -122951,23 +122957,21 @@ const dimensionsButton = document.getElementById('dimensions-button');
 
 function dimensionsButtonActive () {
     dimensionsButton.classList.add('active-button');
-    buttonInstructions.textContent = 'Double-clic sur deux points pour ajouter une cote; delete pour supprimer.';
+    buttonInstructionsMain.textContent = 'Double-cliquer sur deux points pour ajouter une cote.';
+    buttonInstructionsEscape.style.display = 'inline';
     viewer.dimensions.previewActive = true;
     viewer.dimensions.active = true;
     window.ondblclick = () => {
         viewer.dimensions.create();
-    };
-    window.onkeydown = (event) => {
-        if(event.code === 'Delete') {
-            viewer.dimensions.deleteAll();
-        }
     };
 }
 
 function dimensionsButtonDisable () {
     dimensionsButton.classList.remove('active-button');
     viewer.dimensions.active = false;
-    buttonInstructions.textContent = buttonInstructionsBase;
+    buttonInstructionsMain.textContent = buttonInstructionsMainBase;
+    buttonInstructionsEscape.style.display = 'none';
+    viewer.dimensions.deleteAll();
 }
 
 let dimensionsButtonBoolean = false;
@@ -122988,7 +122992,7 @@ tourButton.onclick = () => {
 };
 function tourButtonDisable () {
     tourButton.classList.remove('active-button');
-    buttonInstructions.textContent = buttonInstructionsBase;
+    buttonInstructionsMain.textContent = buttonInstructionsMainBase;
 }
 
 // ESC ALL BUTTONS
@@ -123000,7 +123004,7 @@ function escAllButtons () {
     dimensionsButtonDisable();
     dimensionsButtonBoolean = false;
     tourButtonDisable();
-    buttonInstructions.textContent = buttonInstructionsBase;
+    buttonInstructionsMain.textContent = buttonInstructionsMainBase;
 }
 document.addEventListener('keydown', function(event){
 	if(event.key === "Escape"){

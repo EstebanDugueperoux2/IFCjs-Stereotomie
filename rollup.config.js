@@ -12,7 +12,7 @@ export default [
   plugins: [
     resolve(),
   ]
-  },
+  },/*
   {
     input: './viewer.js',
     output: [
@@ -36,5 +36,5 @@ export default [
       plugins: [
         resolve(),
       ]
-      }
+      }*/
 ];

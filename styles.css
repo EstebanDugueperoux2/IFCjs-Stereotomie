@@ -89,19 +89,22 @@ footer{
     cursor: pointer;
     text-align: left;
     width: 300px;
+    height: 50px;
     padding: 0.5em;
     border-style: solid;
-    color: black;
-    text-decoration-color: red;
+    color: #4F8FCC;
+    text-decoration: none;
     border: none;
-    transition-property: color, text-decoration-color;
+    transition-property: text-decoration;
     transition-duration: .2s;
     transition-timing-function: ease-in-out;
 }
 .description-element:hover {
-    color: red;
-    border-color: red;
-    text-decoration-color: black;
+    text-decoration: underline;
+    text-decoration-color: #4F8FCC;
+}
+.font-weight-bold{
+    font-weight: bold;
 }
 /* From uiverse.io */
 .button {
@@ -122,12 +125,12 @@ footer{
 .button:hover {
     cursor: pointer;
     color: white;
-    background-color: #ff0000;
-    box-shadow: 0px 15px 20px rgba(100, 0, 0, 0.4);
+    background-color: #4F8FCC;
+    box-shadow: 0px 15px 20px rgba(0, 0, 100, 0.4);
     transform: translateY(-7px);
 }
 .active-button {
-    background-color : red;
+    background-color : #4F8FCC;
     transform: translateY(-3px);
 }
 .active-button:hover {
@@ -147,7 +150,7 @@ footer{
     border-bottom: solid 1px #dddddd;
 }
 .ifc-property-value {
-    color: red;
+    color: #4F8FCC;
     width: 100%;
     text-align: right;
 }
@@ -170,6 +173,10 @@ footer{
 #header-titles-h2-a:hover{
     color: red;
     text-decoration-color: black;
+}
+#header-instructions{
+    margin-top: 10px;
+    margin-left: var(--margin-left);
 }
 #viewer-container {
     position: fixed;
@@ -196,7 +203,7 @@ footer{
     position: fixed;
     width: 100%;
     text-align: center;
-    bottom: 10vh;
+    bottom: 3vh;
 }
 #photomesh-button{
     position: relative;
@@ -255,7 +262,7 @@ footer{
 }
 #button-instructions{
     margin-top: 10px;
-    text-align: center;
+    margin-bottom: 10px;
     font-style: italic;
 }
 #ifc-property-menu {
@@ -268,23 +275,25 @@ footer{
     background-color: white;
 }
 #blocker {
+    z-index: 10;
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(69,58,76,0.5);
-}
-#instructions {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 14px;
+    font-size: 36px;
     color: white;
     cursor: pointer;
+}
+#instructions {
+    display: none;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 3vh;
 }
 @keyframes animate1{
     25%{

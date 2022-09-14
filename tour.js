@@ -81,7 +81,7 @@ let camera, scene, renderer, controls;
 			const blocker = document.getElementById( 'blocker' );
 			const instructions = document.getElementById( 'instructions' );
 
-			instructions.addEventListener( 'click', function () {
+			blocker.addEventListener( 'click', function () {
 
 				controls.lock();
 
@@ -89,15 +89,13 @@ let camera, scene, renderer, controls;
 
 			controls.addEventListener( 'lock', function () {
 
-				instructions.style.display = 'none';
 				blocker.style.display = 'none';
 
 			} );
 
 			controls.addEventListener( 'unlock', function () {
 
-				blocker.style.display = 'block';
-				instructions.style.display = '';
+				blocker.style.display = 'flex';
 
 			} );
 
@@ -194,7 +192,6 @@ let camera, scene, renderer, controls;
 									uvAttribute.setXY( i, uu, vv );
 									uvAttribute.needsUpdate = true;
 								}
-								console.log(uvAttribute);
 								mesh.receiveShadow = true; 
 							}
 						} );
@@ -208,7 +205,8 @@ let camera, scene, renderer, controls;
 						camera.position.z = 4;
 						gltfLoader.load( 'models/Pavillon La Hire.glb', 
 							function (model) {
-								blocker.style.display = 'block';
+								blocker.style.display = 'flex';
+								instructions.style.display = 'block';
 								loadingElem.style.display = 'none';
 								scene.add(model.scene);
 							},
@@ -225,7 +223,8 @@ let camera, scene, renderer, controls;
 						ifcLoader.setPath('./models/')
 						ifcLoader.load(currentProject.group + '.ifc', 
 							function (model) {
-								blocker.style.display = 'block';
+								blocker.style.display = 'flex';
+								instructions.style.display = 'block';
 								loadingElem.style.display = 'none';
 
 								// CENTER
