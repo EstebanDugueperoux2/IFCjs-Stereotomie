@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CNPA Stéréotomie</title>
-    <link rel="icon" type="image/x-icon" href="/epfl/favicon.ico">
-    <link rel="stylesheet" type='text/css' href="styles.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="/epfl/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <div class="logos">
-            <a href="https://www.epfl.ch/fr/" target="blank">
-                <img id="logo-epfl" src="https://www.epfl.ch/wp/5.5/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg?refresh=now" alt="Logo EPFL, École polytechnique fédérale de Lausanne">
-            </a>
-            <a href="https://www.epfl.ch/schools/enac/fr/" target="blank">
-                <img class="logo-unites" src="./epfl/EPFL_Unités_ENAC.png" alt="Logo ENAC, Faculté de l’environnement naturel, architectural et construit">
-            </a>
-            <a href="https://www.epfl.ch/labs/cnpa/fr/" target="blank">
-                <img class="logo-unites" src="./epfl/EPFL_Unités_CNPA.png" alt="Logo CNPA, Laboratoire des cultures numériques du projet architectural">
-            </a>
-        </div>
-        <h1 class="header-titles">Stéréotomie 2021</h1>
-        <h2 class="header-titles-h2">group</h2>
+      <div class="logos">
+        <a href="https://www.epfl.ch/fr/" target="blank">
+          <img
+            id="logo-epfl"
+            src="https://www.epfl.ch/wp/5.5/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg?refresh=now"
+            alt="Logo EPFL, École polytechnique fédérale de Lausanne"
+          />
+        </a>
+        <a href="https://www.epfl.ch/schools/enac/fr/" target="blank">
+          <img
+            class="logo-unites"
+            src="./epfl/EPFL_Unités_ENAC.png"
+            alt="Logo ENAC, Faculté de l’environnement naturel, architectural et construit"
+          />
+        </a>
+        <a href="https://www.epfl.ch/labs/cnpa/fr/" target="blank">
+          <img
+            class="logo-unites"
+            src="./epfl/EPFL_Unités_CNPA.png"
+            alt="Logo CNPA, Laboratoire des cultures numériques du projet architectural"
+          />
+        </a>
+      </div>
+      <h1 class="header-titles">Stéréotomie 2021</h1>
+      <h2 class="header-titles-h2">group</h2>
     </header>
     <div id="tour-loading-container">
-        <img src="./epfl/square.png" id="tour-loading-icon">
-        <p id="tour-loading-text">Chargement...</p>
+      <img src="./epfl/square.png" id="tour-loading-icon" />
+      <p id="tour-loading-text">Chargement...</p>
     </div>
     <div id="blocker">
-        <p>Cliquer quelque part sur cette fenêtre pour commencer le tour virtuel.</p>
+      <p>Cliquer n'importe où à l'écran pour commencer la visite virtuelle.</p>
     </div>
     <div id="instructions">
-        <p>
-            Orienter la vue: SOURIS<br/>
-            Se déplacer: touches W-A-S-D ou FLECHES du clavier<br/>
-            Sortir du tour virtuel: touche ESC
-        </p>
+      <p>
+        Orienter la vue: SOURIS<br />
+        Se déplacer: touches W-A-S-D ou FLECHES du clavier<br />
+        Sortir de la visite virtuelle: touche ESC
+      </p>
     </div>
     <script type="module" src="./tour-bundle.js"></script>
-</body>
+  </body>
 </html>
