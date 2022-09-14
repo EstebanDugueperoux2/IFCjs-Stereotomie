@@ -122770,7 +122770,8 @@ loadIfc();
 
 // BUTTONS
 const buttonInstructionsMain = document.getElementById('button-instructions-main');
-const buttonInstructionsMainBase = 'Sélectionner un outil.';
+const buttonInstructionsMainBase = 'Activer un ou des outil(s) ci-dessus par simple-clic. Ils peuvent fonctionner en même temps.';
+buttonInstructionsMain.textContent = buttonInstructionsMainBase;
 const buttonInstructionsEscape = document.getElementById('button-instructions-escape');
 buttonInstructionsEscape.style.display = 'none';
 
@@ -122968,6 +122969,7 @@ function dimensionsButtonActive () {
 
 function dimensionsButtonDisable () {
     dimensionsButton.classList.remove('active-button');
+    viewer.dimensions.previewActive = false;
     viewer.dimensions.active = false;
     buttonInstructionsMain.textContent = buttonInstructionsMainBase;
     buttonInstructionsEscape.style.display = 'none';
