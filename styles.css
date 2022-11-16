@@ -337,3 +337,69 @@ footer {
     stroke-dashoffset: -125px;
   }
 }
+
+
+@media (max-width: 768px){
+
+  :root {
+    --margin-left: 5vw;
+  }
+  header, body {
+    font-size: 12px;
+    margin-right: 5vw;
+  }
+  .logos {
+    height: 40px;
+    padding: 0;
+    border-bottom: 1px solid #cccccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .logo-unites {
+    height: 30px;
+    margin-left: 3px;
+    margin-top: 2px;
+  }
+  .list-item {
+    width: 90vw;
+  }
+  .scene-element{
+    width: 90vw;
+    height: 90vw;
+  }
+  .description-element{
+    width: 90vw;
+  }
+  #header-instructions {
+    display: none;
+  }
+  #logo-epfl {
+    height: 18px;
+  }
+  /*Viewer*/
+  .button {
+    padding: 5px;
+    margin: 5px;
+    font-size: 12px;
+    letter-spacing: 0px;
+  }
+  .button:hover {
+    transform: translateY(0px);
+  }
+  #button-instructions{
+    margin: 2px;
+  }
+  #ifc-property-menu {
+    position: absolute ;
+    width: 90vw;
+    max-height: 20vh;
+    overflow: scroll;
+    margin-top: 80px;
+    left: 5vw;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  #tour-button{
+    display: none;
+  }
+}
