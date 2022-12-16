@@ -1,8 +1,13 @@
 import { projects } from "./projects.js";
 const currentUrl = window.location.href;
-const currentProjectID = currentUrl.substring(currentUrl.lastIndexOf("=") + 1);
+const currentProjectGroupYear = currentUrl.substring(currentUrl.lastIndexOf("=") + 1);
+const currentProjectYear = currentProjectGroupYear.substring(0, 4);
+const h1Year = document.getElementById("h1-year");
+h1Year.textContent = currentProjectYear;
+const currentProjectGroupHref = currentProjectGroupYear.substring(5);
+const currentProjectGroup = currentProjectGroupHref.replaceAll('%20', ' ');
 const currentProject = projects.find(
-  (project) => project.id === currentProjectID
+  (project) => project.group === currentProjectGroup && project.year === currentProjectYear
 );
 const groupAndStudents = document.querySelector("h2");
 groupAndStudents.textContent =
@@ -192,10 +197,10 @@ function init() {
       // MODEL
       const loadingElem = document.getElementById("tour-loading-container");
       const loadingText = document.getElementById("tour-loading-text");
-      if (currentProjectID == 0) {
+      if (currentProjectGroup == "Pavillon La Hire 2021") {
         camera.position.z = 4;
         gltfLoader.load(
-          "models/Pavillon La Hire.glb",
+          "models/2021/Pavillon La Hire 2021.glb",
           function (model) {
             blocker.style.display = "flex";
             instructions.style.display = "block";
@@ -211,7 +216,7 @@ function init() {
       } else {
         const ifcLoader = new IFCLoader();
         ifcLoader.ifcManager.setWasmPath("./wasm-0-0-36/");
-        ifcLoader.setPath("./models/");
+        ifcLoader.setPath("./models/" + currentProjectYear + "/");
         ifcLoader.load(
           currentProject.group + ".ifc",
           function (model) {

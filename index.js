@@ -47,6 +47,8 @@ function init() {
   const baseURL = `./viewer.html`;
 
   for (let project of projects) {
+    //if (project.group == "Pavillon La Hire 2021" || project.year == year) {
+
     const scene = new Scene();
     scene.background = new Color(0xdddddd);
 
@@ -56,6 +58,9 @@ function init() {
     // make a list item
     const element = document.createElement("div");
     element.className = "list-item";
+    if (project.group !== "Pavillon La Hire 2021") {
+      element.classList.add(project.year);
+    }
 
     //make a 3D scene
     const sceneElement = document.createElement("div");
@@ -79,14 +84,14 @@ function init() {
 
     //make a description
     const descriptionElement = document.createElement("a");
-    descriptionElement.href = baseURL + `?id=${project.id}`;
+    descriptionElement.href = baseURL + `?id=${project.year + "_" + project.group}`;
     descriptionElement.target = "_blank";
     descriptionElement.classList.add("description-element");
     element.appendChild(descriptionElement);
 
     const groupElement = document.createElement("p");
-    if (project.id == 0) {
-      groupElement.innerText = "Pavillon La Hire";
+    if (project.group == "Pavillon La Hire 2021") {
+      groupElement.innerText = "Pavillon La Hire 2021";
     } else {
       groupElement.innerText =
         "Groupe " + project.group + " : " + project.students;
@@ -106,7 +111,7 @@ function init() {
     );
     scene.userData.controls = controls;
 
-    if (project.id == 0) {
+    if (project.group == "Pavillon La Hire 2021") {
       new RGBELoader()
         .setPath("textures/equirectangular/")
         .load("paul_lobe_haus_1k.hdr", function (texture) {
@@ -114,9 +119,9 @@ function init() {
           scene.environment = texture;
 
           const gltfLoader = new GLTFLoader();
-          gltfLoader.setPath("models/");
+          gltfLoader.setPath("models/" + project.year + "/");
           gltfLoader.load(
-            "Pavillon La Hire.glb",
+            "Pavillon La Hire 2021.glb",
 
             function (gltf) {
               loadingContainer.style.display = "none";
@@ -154,7 +159,7 @@ function init() {
       const ifcLoader = new IFCLoader();
       ifcLoader.ifcManager.setWasmPath("./wasm-0-0-36/");
       ifcLoader.load(
-        "models/" + project.group + ".ifc",
+        "models/" + project.year + "/" + project.group + ".ifc",
 
         function (model) {
           loadingContainer.style.display = "none";
@@ -210,6 +215,7 @@ function init() {
 
     scenes.push(scene);
   }
+  //}
 
   renderer = new WebGLRenderer({ canvas: canvas, antialias: true });
   renderer.setClearColor(0xffffff, 1);
@@ -266,3 +272,66 @@ function render() {
     renderer.render(scene, camera);
   });
 }
+
+let year = 2022;
+const h1Year = document.getElementById("h1-year");
+const dropbtn = document.getElementById("dropbtn");
+const year2022Btn = document.getElementById("year-2022-btn");
+const year2021Btn = document.getElementById("year-2021-btn");
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+dropbtn.onclick = () => {
+  document.getElementById("myDropdown").classList.toggle("show");
+};
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".dropbtn")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
+year2022Btn.disabled = true;
+
+const projects2022 = document.getElementsByClassName("2022");
+const projects2021 = document.getElementsByClassName("2021");
+for (let project2021 of projects2021) {
+  project2021.style.display = "none";
+}
+
+year2022Btn.onclick = () => {
+  year = 2022;
+  console.log(year);
+  h1Year.textContent = year;
+  dropbtn.textContent = year;
+  year2022Btn.disabled = true;
+  year2021Btn.disabled = false;
+  for (let project2022 of projects2022) {
+    project2022.style.display = "inline-block";
+  }
+  for (let project2021 of projects2021) {
+    project2021.style.display = "none";
+  }
+};
+year2021Btn.onclick = () => {
+  year = 2021;
+  console.log(year);
+  h1Year.textContent = year;
+  dropbtn.textContent = year;
+  year2022Btn.disabled = false;
+  year2021Btn.disabled = true;
+  for (let project2022 of projects2022) {
+    project2022.style.display = "none";
+  }
+  for (let project2021 of projects2021) {
+    project2021.style.display = "inline-block";
+  }
+};

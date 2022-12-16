@@ -1,8 +1,13 @@
 import { projects } from "./projects.js";
 const currentUrl = window.location.href;
-const currentProjectID = currentUrl.substring(currentUrl.lastIndexOf("=") + 1);
+const currentProjectGroupYear = currentUrl.substring(currentUrl.lastIndexOf("=") + 1);
+const currentProjectYear = currentProjectGroupYear.substring(0, 4);
+const h1Year = document.getElementById("h1-year");
+h1Year.textContent = currentProjectYear;
+const currentProjectGroupHref = currentProjectGroupYear.substring(5);
+const currentProjectGroup = currentProjectGroupHref.replaceAll('%20', ' ');
 const currentProject = projects.find(
-  (project) => project.id === currentProjectID
+  (project) => project.group === currentProjectGroup && project.year === currentProjectYear
 );
 const groupAndStudents = document.querySelector("h2");
 groupAndStudents.textContent =
@@ -33,7 +38,7 @@ viewer.axes.setAxes();
 
 async function loadIfc() {
   const model = await viewer.IFC.loadIfcUrl(
-    "./models/" + currentProject.group + ".ifc"
+    "./models/" + currentProject.year + "/" + currentProject.group + ".ifc"
   );
   await viewer.shadowDropper.renderShadow(model.modelID);
 }
@@ -59,7 +64,7 @@ const propertiesGUI = document.getElementById("ifc-property-menu-root");
 
 function infosButtonActive() {
   infosButton.classList.add("active-button");
-  if (currentProjectID === 0) {
+  if (currentProjectGroup === "Pavillon La Hire 2021") {
     buttonInstructionsMain.textContent =
       "Double-cliquer sur un élément pour afficher ses propriétés.";
   } else {
@@ -278,7 +283,7 @@ dimensionsButton.onclick = () => {
 const tourButton = document.getElementById("tour-button");
 tourButton.onclick = () => {
   const baseURL = `./tour.html`;
-  location.href = baseURL + `?id=${currentProjectID}`;
+  location.href = baseURL + `?id=${currentProjectYear + "_" + currentProjectGroup}`;
 };
 function tourButtonDisable() {
   tourButton.classList.remove("active-button");
@@ -304,7 +309,7 @@ document.addEventListener("keydown", function (event) {
 
 // PHOTOMESH BUTTON FOR PAVILLON LA HIRE
 const photomeshButton = document.getElementById("photomesh-button");
-if (currentProjectID > 0) {
+if (currentProjectGroup !== "Pavillon La Hire 2021") {
   photomeshButton.style.display = "none";
 } else {
   new RGBELoader()
@@ -313,7 +318,7 @@ if (currentProjectID > 0) {
       texture.mapping = EquirectangularReflectionMapping;
       viewer.context.getScene().environment = texture;
 
-      const loader = new GLTFLoader().setPath("models/");
+      const loader = new GLTFLoader().setPath("models/2021/");
       const photomeshLoaderContainer = document.getElementById(
         "photomesh-loading-container"
       );
@@ -321,7 +326,7 @@ if (currentProjectID > 0) {
         "photomesh-loading-text"
       );
       loader.load(
-        "Pavillon La Hire.glb",
+        "Pavillon La Hire 2021.glb",
         function (gltf) {
           photomeshButton.classList.remove("prevent-button");
           photomeshLoaderContainer.style.display = "none";

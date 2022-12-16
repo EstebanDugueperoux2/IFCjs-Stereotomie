@@ -1,184 +1,404 @@
 const projects = [
     {
-        group: "Pavillon La Hire",
+        group: "Pavillon La Hire 2021",
         students: "construit avec les étudiants",
-        id: "0",
+        year: "2021"
     },
     {
         group: "A-01",
         students: "Abansir, Forster, Elben, Broye",
-        id: "1",
+        year: "2021"
     },
     {
         group: "A-02",
         students: "Ducos, Egger, Aymon, De Montgolfier",
-        id: "2",
+        year: "2021"
     },
     {
         group: "A-03",
         students: "Cazenave, Farine, El Graoui, Blanc L. N.",
-        id: "3",
+        year: "2021"
     },
     {
         group: "A-04",
         students: "Choné, Duyck, Cattaneo, Bai",
-        id: "4",
+        year: "2021"
     },
     {
         group: "A-05",
         students: "Carroz, Chevroulet, Crettex, Decalf",
-        id: "5",
+        year: "2021"
     },
     {
         group: "A-06",
         students: "Favre, Debrom, Boulnoix, Arutselvan",
-        id: "6",
+        year: "2021"
     },
     {
         group: "A-07",
         students: "Butty, Ciompi, Friedli, Crisinel",
-        id: "7",
+        year: "2021"
     },
     {
         group: "A-08",
         students: "Castella, Clavien, Aznavourian, Desalbres",
-        id: "8",
+        year: "2021"
     },
     {
         group: "A-09",
         students: "Compagnon, Bron, Ducotterd, Baldy-Moulinier",
-        id: "9",
+        year: "2021"
     },
     {
         group: "A-10",
         students: "Davel, Dam Wan, Castellón Arévalo, Barth",
-        id: "10",
+        year: "2021"
     },
     {
         group: "A-11",
         students: "Druey, Brütsch, Fontanella, Champaud",
-        id: "11",
+        year: "2021"
     },
     {
         group: "A-12",
         students: "Collet, Essaoudi, Blanc M., Cleusix",
-        id: "12",
+        year: "2021"
     },
     {
         group: "B-01",
         students: "Kölbl, Hugues, Gilot, Grandjean",
-        id: "13",
+        year: "2021"
     },
     {
         group: "B-02",
         students: "Magnaguémabé, Go, Kalmus, Ito",
-        id: "14",
+        year: "2021"
     },
     {
         group: "B-03",
         students: "Isoz, Hansra Sartorius, Mazerand, Kleyr",
-        id: "15",
+        year: "2021"
     },
     {
         group: "B-04",
         students: "Ludwig, Ilieva, Le Hir, Lihatchi",
-        id: "16",
+        year: "2021"
     },
     {
         group: "B-05",
         students: "Mazotti, Gal, Guigues, Gisiger",
-        id: "17",
+        year: "2021"
     },
     {
         group: "B-06",
         students: "Landon, Lambert, Kublová, Maes",
-        id: "18",
+        year: "2021"
     },
     {
         group: "B-07",
         students: "Kali, Leresche, Huehn, Keskin",
-        id: "19",
+        year: "2021"
     },
     {
         group: "B-08",
         students: "Lassus, Hölzl, Gaumet, Michoud",
-        id: "20",
+        year: "2021"
     },
     {
         group: "B-09",
         students: "Käser, Goehry, Guillouzic, Lorenzo",
-        id: "21",
+        year: "2021"
     },
     {
         group: "B-10",
-        students: "Lüthy, Gigon, Karara, Garcia-Bellido Ruiz",
-        id: "22",
+        students: "Lüthy, Gigon, Karara, Garcia-Bellido R21-b-01uiz",
+        year: "2021"
     },
     {
         group: "B-11",
         students: "Genecand, Haefeli, Hajoubi, Lesoille",
-        id: "23",
+        year: "2021"
     },
     {
         group: "B-12",
         students: "Maillard, Lemoisson, Marin, Métral",
-        id: "24",
+        year: "2021"
     },
     {
         group: "C-01",
         students: "Sistek, Von Der Weid, Wegmüller, Rivier",
-        id: "25",
+        year: "2021"
     },
     {
         group: "C-02",
         students: "Steyaert, Rigby, Rakoczy, Reis",
-        id: "26",
+        year: "2021"
     },
     {
         group: "C-03",
         students: "Ponsar, Mouine, Walther, Nicod",
-        id: "27",
+        year: "2021"
     },
     {
         group: "C-04",
         students: "Moeschler, Schaffner, Thierry-Nánási, Treyer",
-        id: "28",
+        year: "2021"
     },
     {
         group: "C-05",
         students: "Wanner, Perron, Potapushin, Schwaiger",
-        id: "29",
+        year: "2021"
     },
     {
         group: "C-06",
         students: "Sebastian, Orakwe, Weber, Wasserfallen",
-        id: "30",
+        year: "2021"
     },
     {
         group: "C-07",
         students: "Mokssit, Mustapha, Raugel, Takatch",
-        id: "31",
+        year: "2021"
     },
     {
         group: "C-08",
         students: "Sommer, Williams Roffe, Thévoz, Reol",
-        id: "32",
+        year: "2021"
     },
     {
         group: "C-09",
         students: "Znaidi, Mundinger, Pellin, Vaudaux",
-        id: "33",
+        year: "2021"
     },
     {
         group: "C-10",
         students: "Vinet, Renaudineau, Siragusa",
-        id: "34",
+        year: "2021"
     },
     {
         group: "C-11",
         students: "Milanovic, Ramiqi, Rossillon",
-        id: "35",
-    }
+        year: "2021"
+    },
+    {
+        group: "A-01",
+        students: "Authier, Antonietti, Amstutz, Genoud",
+        year: "2022"
+    },
+    {
+        group: "A-02",
+        students: "Alhadeff, Galantay, Chatelain, Béboux",
+        year: "2022"
+    },
+    {
+        group: "A-03",
+        students: "Favre, Charrel, Arlaud, Chraibi",
+        year: "2022"
+    },
+    {
+        group: "A-04",
+        students: "Dahsyla, Carrasco Rosário, El-Zein, Gaspar Luis",
+        year: "2022"
+    },
+    {
+        group: "A-05",
+        students: "Brun Noé, Dejean, Frauenfelder, El Mawla",
+        year: "2022"
+    },
+    {
+        group: "A-06",
+        students: "Adu Darko, Drollinger, Balquet, Bouchaour",
+        year: "2022"
+    },
+    {
+        group: "A-07",
+        students: "Ansselin, Dubois Merlin, Baquey, Brichet",
+        year: "2022"
+    },
+    {
+        group: "A-08",
+        students: "Desprez, Duc, Aebersold, Garcés Garcia",
+        year: "2022"
+    },
+    {
+        group: "A-09",
+        students: "Alves Luis, Danthe, Coxe, Espie",
+        year: "2022"
+    },
+    {
+        group: "A-10",
+        students: "Fierro Rubio, Burrus, Abouladl, Delemazure",
+        year: "2022"
+    },
+    {
+        group: "A-11",
+        students: "Dubois Sami, Bloch-Morhange, Acquadro, Bregnard",
+        year: "2022"
+    },
+    {
+        group: "A-12",
+        students: "Gherbi, Chen, Buchard, Gba",
+        year: "2022"
+    },
+    {
+        group: "A-13",
+        students: "Belov, Chatelain, Eggli, Darmezin",
+        year: "2022"
+    },
+    {
+        group: "A-14",
+        students: "Carruzzo, Braissant, Beney, Freneat",
+        year: "2022"
+    },
+    {
+        group: "A-15",
+        students: "Brun, Adnane, Baudriller, Boukar",
+        year: "2022"
+    },
+    {
+        group: "B-01",
+        students: "Gressier, Kasa, Moreau, Laurant",
+        year: "2022"
+    },
+    {
+        group: "B-02",
+        students: "Legrand, Matadin, Lesigne, Hottinger",
+        year: "2022"
+    },
+    {
+        group: "B-03",
+        students: "Janet, Hasler, Kelemen, Koch",
+        year: "2022"
+    },
+    {
+        group: "B-04",
+        students: "Lo Schiavo, Gruson, Heinzer, Mathieu",
+        year: "2022"
+    },
+    {
+        group: "B-05",
+        students: "Gobat, Jaggi, Giulieri, Habre",
+        year: "2022"
+    },
+    {
+        group: "B-06",
+        students: "Lemmens, Maerean, Lucas, Jelk",
+        year: "2022"
+    },
+    {
+        group: "B-07",
+        students: "Hofmann, Ludewig, Grandjacques, Maziere",
+        year: "2022"
+    },
+    {
+        group: "B-08",
+        students: "Magnani, Goundiaeva, Naulin, Mocaër",
+        year: "2022"
+    },
+    {
+        group: "B-09",
+        students: "Hoti, Mikael, Hammoud, Kempf",
+        year: "2022"
+    },
+    {
+        group: "B-10",
+        students: "Hersperger, Granger, Lachat, Grunho Pereira",
+        year: "2022"
+    },
+    {
+        group: "B-11",
+        students: "Kientz, Mosetti, Hohermuth, Jornod",
+        year: "2022"
+    },
+    {
+        group: "B-12",
+        students: "Keller, Meyer, Krivobok Puigrefagut, Khan",
+        year: "2022"
+    },
+    {
+        group: "B-13",
+        students: "Impalà, Gomez, Grini, Naef",
+        year: "2022"
+    },
+    {
+        group: "B-14",
+        students: "Lay Da Silva, Jacome Alban, Kaidi, Girardin",
+        year: "2022"
+    },
+    {
+        group: "C-01",
+        students: "Richir, Nuhiu, Zinder, Sautebin",
+        year: "2022"
+    },
+    {
+        group: "C-02",
+        students: "Prelicz, Semadeni, Saunders-Nazareth, Segard",
+        year: "2022"
+    },
+    {
+        group: "C-03",
+        students: "Peyraud, Tessier, Tolleson, Unternährer",
+        year: "2022"
+    },
+    {
+        group: "C-04",
+        students: "Roman, Quiblier, Quenis, Pfyffer Von Altishofen",
+        year: "2022"
+    },
+    {
+        group: "C-05",
+        students: "Pax, Rieder, Védy, Pereira Correia",
+        year: "2022"
+    },
+    {
+        group: "C-06",
+        students: "Varini, Troillet, Schürmann, Voide",
+        year: "2022"
+    },
+    {
+        group: "C-07",
+        students: "Pavicevic, Portner, Paulsen, Vilela",
+        year: "2022"
+    },
+    {
+        group: "C-08",
+        students: "Nicolas, Sanchez Garralon, Pichonnaz, Ravot",
+        year: "2022"
+    },
+    {
+        group: "C-09",
+        students: "Walther, Wirthner, Wagner, Zündel",
+        year: "2022"
+    },
+    {
+        group: "C-10",
+        students: "Passer, Springenfeld, Vieira Cruz, Vouillamoz",
+        year: "2022"
+    },
+    {
+        group: "C-11",
+        students: "Nougué, Von Arx, Rossat, Peguiron",
+        year: "2022"
+    },
+    {
+        group: "C-12",
+        students: "Tavernier, Thomson, Ozüpekce, Pellouchoud",
+        year: "2022"
+    },
+    {
+        group: "C-13",
+        students: "Whitehead, Nunes, Thorez, Sassine",
+        year: "2022"
+    },
+    {
+        group: "C-14",
+        students: "Roulet, Verbois, Wild, Vann",
+        year: "2022"
+    },
+    {
+        group: "C-15",
+        students: "Renz, Rezzonico, Nishiyama, Romano, Shatravin",
+        year: "2022"
+    },   
 ];
 
 /**
@@ -109736,6 +109956,8 @@ function init() {
   const baseURL = `./viewer.html`;
 
   for (let project of projects) {
+    //if (project.group == "Pavillon La Hire 2021" || project.year == year) {
+
     const scene = new Scene();
     scene.background = new Color$1(0xdddddd);
 
@@ -109745,6 +109967,9 @@ function init() {
     // make a list item
     const element = document.createElement("div");
     element.className = "list-item";
+    if (project.group !== "Pavillon La Hire 2021") {
+      element.classList.add(project.year);
+    }
 
     //make a 3D scene
     const sceneElement = document.createElement("div");
@@ -109768,14 +109993,14 @@ function init() {
 
     //make a description
     const descriptionElement = document.createElement("a");
-    descriptionElement.href = baseURL + `?id=${project.id}`;
+    descriptionElement.href = baseURL + `?id=${project.year + "_" + project.group}`;
     descriptionElement.target = "_blank";
     descriptionElement.classList.add("description-element");
     element.appendChild(descriptionElement);
 
     const groupElement = document.createElement("p");
-    if (project.id == 0) {
-      groupElement.innerText = "Pavillon La Hire";
+    if (project.group == "Pavillon La Hire 2021") {
+      groupElement.innerText = "Pavillon La Hire 2021";
     } else {
       groupElement.innerText =
         "Groupe " + project.group + " : " + project.students;
@@ -109795,7 +110020,7 @@ function init() {
     );
     scene.userData.controls = controls;
 
-    if (project.id == 0) {
+    if (project.group == "Pavillon La Hire 2021") {
       new RGBELoader()
         .setPath("textures/equirectangular/")
         .load("paul_lobe_haus_1k.hdr", function (texture) {
@@ -109803,9 +110028,9 @@ function init() {
           scene.environment = texture;
 
           const gltfLoader = new GLTFLoader();
-          gltfLoader.setPath("models/");
+          gltfLoader.setPath("models/" + project.year + "/");
           gltfLoader.load(
-            "Pavillon La Hire.glb",
+            "Pavillon La Hire 2021.glb",
 
             function (gltf) {
               loadingContainer.style.display = "none";
@@ -109843,7 +110068,7 @@ function init() {
       const ifcLoader = new IFCLoader();
       ifcLoader.ifcManager.setWasmPath("./wasm-0-0-36/");
       ifcLoader.load(
-        "models/" + project.group + ".ifc",
+        "models/" + project.year + "/" + project.group + ".ifc",
 
         function (model) {
           loadingContainer.style.display = "none";
@@ -109899,6 +110124,7 @@ function init() {
 
     scenes.push(scene);
   }
+  //}
 
   renderer = new WebGLRenderer({ canvas: canvas, antialias: true });
   renderer.setClearColor(0xffffff, 1);
@@ -109955,3 +110181,66 @@ function render() {
     renderer.render(scene, camera);
   });
 }
+
+let year = 2022;
+const h1Year = document.getElementById("h1-year");
+const dropbtn = document.getElementById("dropbtn");
+const year2022Btn = document.getElementById("year-2022-btn");
+const year2021Btn = document.getElementById("year-2021-btn");
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+dropbtn.onclick = () => {
+  document.getElementById("myDropdown").classList.toggle("show");
+};
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches(".dropbtn")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
+
+year2022Btn.disabled = true;
+
+const projects2022 = document.getElementsByClassName("2022");
+const projects2021 = document.getElementsByClassName("2021");
+for (let project2021 of projects2021) {
+  project2021.style.display = "none";
+}
+
+year2022Btn.onclick = () => {
+  year = 2022;
+  console.log(year);
+  h1Year.textContent = year;
+  dropbtn.textContent = year;
+  year2022Btn.disabled = true;
+  year2021Btn.disabled = false;
+  for (let project2022 of projects2022) {
+    project2022.style.display = "inline-block";
+  }
+  for (let project2021 of projects2021) {
+    project2021.style.display = "none";
+  }
+};
+year2021Btn.onclick = () => {
+  year = 2021;
+  console.log(year);
+  h1Year.textContent = year;
+  dropbtn.textContent = year;
+  year2022Btn.disabled = false;
+  year2021Btn.disabled = true;
+  for (let project2022 of projects2022) {
+    project2022.style.display = "none";
+  }
+  for (let project2021 of projects2021) {
+    project2021.style.display = "inline-block";
+  }
+};
